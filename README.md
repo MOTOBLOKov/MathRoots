@@ -1,78 +1,17 @@
 # MathRoots
-Вычисление математический корней с высокой точностью 
-Исходный код , можете исправлять баги или модифицировать.
+пример использования библиотеки
 
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+using System;
+using MathRoot;
 
-
-namespace MathRoot
+namespace Program 
 {
-    public static class RootTools
+    class MainClass 
     {
-        public static decimal ComputeRoot(Root Root, uint Range)
+        public static void Main()
         {
-            string strRoot = default;
-            {
-                decimal doValue = default;
-                decimal verification = default;
-                for (int i = 0; true; i++)
-                {
-                    verification = RootTools.Pow(i, Root.Radical); ;
-                    if (verification > Root.RadicalExpression)
-                    {
-                        break;
-                    }
-                    else { doValue = i; }
-                }
-                strRoot = $"{doValue},";
-            }
-
-
-            for (int i = 0; i <= Range; i++)
-            {
-                decimal FracValue = default;
-                decimal DoValue = default;
-                for (int j = 0; j < 10; j++)
-                {
-                    FracValue = decimal.Parse($"{strRoot}{j}");
-                    decimal verefication = RootTools.Pow(FracValue, Root.Radical);
-
-                    if (verefication > Root.RadicalExpression)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        DoValue = FracValue;
-                    }
-                }
-                strRoot = DoValue.ToString();
-            }
-
-            return decimal.Parse(strRoot);
+            Root root = new Root(27 , 3);
+            Console.Write("Итоговое: " + RootTools.ComputeRoot(root, 15));
         }
-        public static decimal Pow(decimal number, decimal degree)
-        {
-            decimal result = 1;
-
-            for (int i = 0; i < degree; i++)
-            {
-                result = result * number;
-            }
-
-            return result;
-        }
-    }
-    public struct Root
-    {
-        public Root(decimal RadicalExpression, int Radical = 2)
-        {
-            this.RadicalExpression = RadicalExpression;
-            this.Radical = Radical;
-        }
-        public int Radical { get; }
-        public decimal RadicalExpression { get; }
     }
 }
-
-
