@@ -2,6 +2,9 @@
 Вычисление математический корней с высокой точностью 
 Исходный код , можете исправлять баги или модифицировать.
 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
 namespace MathRoot
 {
     public static class RootTools
@@ -71,3 +74,5 @@ namespace MathRoot
         public decimal RadicalExpression { get; }
     }
 }
+
+
